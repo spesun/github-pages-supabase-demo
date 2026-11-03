@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GitHub Pages 与 Supabase 留言板测试项目">
+  <title>云端留言板</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="hero">
+      <p class="eyebrow">GitHub Pages + Supabase</p>
+      <h1>云端留言板</h1>
+      <p class="intro">一个最小可用的前端加数据库示例。留言保存在云端，刷新页面后仍然存在。</p>
+    </header>
+
+    <section class="card" aria-labelledby="form-title">
+      <div class="section-heading">
+        <div>
+          <p class="step">步骤 1</p>
+          <h2 id="form-title">写一条留言</h2>
+        </div>
+        <span id="connection-badge" class="badge badge-pending">检查配置</span>
+      </div>
+
+      <form id="message-form">
+        <label for="author">昵称</label>
+        <input id="author" name="author" maxlength="30" placeholder="例如：小明" required>
+
+        <label for="content">留言</label>
+        <textarea id="content" name="content" maxlength="280" rows="4" placeholder="写点什么……" required></textarea>
+        <div class="form-meta">
+          <span id="char-count">0 / 280</span>
+          <button id="submit-button" type="submit">发布留言</button>
+        </div>
+      </form>
+      <p id="form-status" class="status" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="card" aria-labelledby="messages-title">
+      <div class="section-heading">
+        <div>
+          <p class="step">步骤 2</p>
+          <h2 id="messages-title">查看云端留言</h2>
+        </div>
+        <button id="refresh-button" class="button-secondary" type="button">刷新</button>
+      </div>
+      <div id="messages" class="messages" aria-live="polite">
+        <p class="empty-state">正在读取留言……</p>
+      </div>
+    </section>
+
+    <section id="setup-panel" class="card setup-card" aria-labelledby="setup-title" hidden>
+      <p class="step">尚未连接数据库</p>
+      <h2 id="setup-title">先完成 Supabase 配置</h2>
+      <ol>
+        <li>在 Supabase 创建一个免费项目。</li>
+        <li>运行项目中的 <code>supabase.sql</code>。</li>
+        <li>复制 <code>config.example.js</code> 为 <code>config.js</code>。</li>
+        <li>填入 Project URL 和 Publishable key 后重新加载页面。</li>
+      </ol>
+      <p>详细步骤请查看项目中的 <code>README.md</code>。</p>
+    </section>
+  </main>
+
+  <footer>演示项目不收集密码，请勿提交敏感信息。</footer>
+
+  <script src="./config.js"></script>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
