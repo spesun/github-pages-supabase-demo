@@ -122,6 +122,7 @@ Settings → Pages → Source → GitHub Actions
 
 ```text
 https://你的用户名.github.io/你的仓库名/
+https://spesun.github.io/github-pages-supabase-demo
 ```
 
 发布后记得把这个地址加入 Supabase 的 **Site URL** 和 **Redirect URLs**。
